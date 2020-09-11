@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { PropsWithChildren } from "react";
+import { pipe } from "fp-ts/function";
+import * as FC from "./FC";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+type FC<A> = FC.FC<A>;
+
+const header: FC<void> = () => <h1>Awesome App</h1>;
+const greeting: FC<{ name: string }> = ({ name }) => <p>Hello {name}!</p>;
+const footer1: FC<void> = () => <p>© Bob McBob 2017</p>;
+
+const main = pipe(
+  header,
+  FC.map((element) => <header style={{ color: "red" }}>{element}</header>),
+  FC.concat(FC.contramap(() => ({ name: "Alice" }))(greeting)),
+  FC.concat(
+    pipe(
+      footer1,
+      FC.map((element) => <footer style={{ color: "blue" }}>{element}</footer>)
+    )
+  )
+);
+
+const App = () => main(undefined as PropsWithChildren<void>);
 
 export default App;

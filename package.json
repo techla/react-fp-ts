@@ -1,19 +1,11 @@
 {
-  "name": "my-app",
+  "name": "react-fp-ts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.55",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
+    "ramda": "^0.27.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "^3.7.5"
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +27,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fp-ts": "^2.8.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.55",
+    "@types/ramda": "^0.27.17",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "react-scripts": "3.4.3",
+    "typescript": "^3.7.5"
   }
 }
